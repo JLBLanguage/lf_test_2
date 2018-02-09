@@ -1,5 +1,9 @@
 Bundle-Name: second-example-login-jsp-hook
 Bundle-SymbolicName: second.example.login.jsp.hook
-Bundle-Version: 1.0.0
-Fragment-Host: com.liferay.login.web;bundle-version="1.0.0"
+Bundle-Version: 1.1.3
+Fragment-Host: com.liferay.login.web;bundle-version="1.1.24"
 -sources: true
+-jsp: *.jsp,*.jspf
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+
+

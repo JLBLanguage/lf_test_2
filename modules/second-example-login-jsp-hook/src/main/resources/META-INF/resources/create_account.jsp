@@ -14,7 +14,12 @@
  */
 --%>
 
+<%@page import="com.liferay.portal.kernel.model.Organization" %>
+
+
 <%@ include file="/init.jsp" %>
+
+<%@ page import="com.liferay.portal.kernel.exception.NoSuchOrganizationException" %>
 
 <%
 String redirect = ParamUtil.getString(request, "redirect");
@@ -38,6 +43,9 @@ birthdayCalendar.set(Calendar.YEAR, 1970);
 	<aui:input name="<%= Constants.CMD %>" type="hidden" value="<%= Constants.ADD %>" />
 	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 	<aui:input name="openId" type="hidden" value="<%= openId %>" />
+
+
+<liferay-ui:error exception="<%= NoSuchOrganizationException.class %>" message="please-enter-a-valid-registration-code" />
 
 	<liferay-ui:error exception="<%= AddressCityException.class %>" message="please-enter-a-valid-city" />
 	<liferay-ui:error exception="<%= AddressStreetException.class %>" message="please-enter-a-valid-street" />
@@ -159,6 +167,10 @@ birthdayCalendar.set(Calendar.YEAR, 1970);
 			</aui:input>
 
 			<liferay-ui:user-name-fields />
+
+			<aui:input label="registration-code" name="registrationCode" size="100" type="text" value="">
+			    <aui:validator name="required" />
+			</aui:input>
 
 		</aui:col>
 
